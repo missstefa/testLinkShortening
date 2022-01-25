@@ -4,7 +4,7 @@ namespace App\Actions;
 
 class ShortenAction
 {
-    public const LINK_SHORTENING_SITES = ["http://www.vybor.by/"];
+    public const LINK_SHORTENING_SITES = ["http://tinyurl.com/"," http://www.vybor.by/"];
 
     public static function execute(string $url)
     {
