@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Link;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LinkStoreRequest extends FormRequest
+class ShortenRequest extends FormRequest
 {
     public function rules()
     {

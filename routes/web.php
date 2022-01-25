@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\FormController;
+use App\Http\Controllers\LinkController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome', ['shortLink' => null]);
 });
-Route::post('/', [FormController::class, 'shorten'])->name('shorten');
+Route::post('/', [LinkController::class, 'shorten'])->name('shorten');
