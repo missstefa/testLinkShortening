@@ -20,7 +20,9 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
-
+@if (session('error'))
+    <div class="alert alert-danger">{{ session('error') }}</div>
+@endif
 @if($shortLink == null)
     <div class="container"
          style="visibility: hidden; position: absolute; width: 300px; height: 200px;  z-index: 15;  top: 70%;  left: 50%;  margin: -100px 0 0 -150px;">
