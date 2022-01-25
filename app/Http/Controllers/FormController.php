@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Actions\ShorteningAction;
 use App\Http\Requests\LinkStoreRequest;
 use Illuminate\Routing\Controller;
 
@@ -11,8 +12,7 @@ class FormController extends Controller
         return view('welcome', ['shortLink' => null]);
     }
 
-    public function store(LinkStoreRequest $request) {
-        $shortLink = file_get_contents("http://tinyurl.com/api-create.php?url=".$request->getLink());
-        return view('welcome', ['shortLink' => $shortLink]);
+    public function shorten(LinkStoreRequest $request) {
+        return view('welcome', ['shortLink' => ShorteningAction::execute($request->getLink())]);
     }
 }

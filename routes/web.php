@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/form', [FormController::class, 'index'])->name('index');
-Route::post('/form', [FormController::class, 'store'])->name('store');
+Route::get('/', function () {
+    return view('welcome', ['shortLink' => null]);
+});
+Route::post('/', [FormController::class, 'shorten'])->name('shorten');
