@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Link;
+use App\Services\LinkService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(LinkService::class, function($app) {
+            return new LinkService();
+        });
     }
 
     /**

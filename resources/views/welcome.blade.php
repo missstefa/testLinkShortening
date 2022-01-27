@@ -32,24 +32,18 @@
         </ul>
     </div>
 @endif
-@if($shortLink == null)
+
+@if(session()->has('success'))
     <div class="container"
-         style="visibility: hidden; position: absolute; width: 300px; height: 200px;  z-index: 15;  top: 70%;  left: 50%;  margin: -100px 0 0 -150px;">
+         style="position: absolute; width: 300px; height: 200px;  z-index: 15;  top: 70%;  left: 50%;  margin: -100px 0 0 -150px;">
         <form>
             <div class="form-group">
-                <a href="{{ $shortLink }}">{{ $shortLink }}</a>
+                <a href="{{ session()->get('success') }}">{{  session()->get('success') }}</a>
             </div>
         </form>
     </div>
 @endif
-<div class="container"
-     style="position: absolute; width: 300px; height: 200px;  z-index: 15;  top: 70%;  left: 50%;  margin: -100px 0 0 -150px;">
-    <form method='POST'>
-        <div class="form-group">
-            <a href="{{ $shortLink }}">{{ $shortLink }}</a>
-        </div>
-    </form>
-</div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
