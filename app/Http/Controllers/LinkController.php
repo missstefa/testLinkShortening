@@ -17,7 +17,16 @@ class LinkController extends Controller
 
         $urlPostfix = $service->linkPostfixGenerate();
 
-        $shortLink = Link::create([
+        $linkFromDb = Link::query()
+            ->where('source_link', $sourceLink)
+            ->first();
+
+        if ($linkFromDb) {
+            return back()->with('success', route('away', ['postfix' => $linkFromDb->url_postfix]));
+        }
+
+        $shortLink = Link::query()
+            ->create([
             'source_link' => $sourceLink,
             'url_postfix' => $urlPostfix
         ]);
@@ -35,7 +44,6 @@ class LinkController extends Controller
             ->where('url_postfix', $postfix)
             ->firstOrFail();
 
-            return redirect()->away($link->source_link);
-
+        return redirect()->away($link->source_link);
     }
 }
